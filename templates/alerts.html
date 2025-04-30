@@ -1,0 +1,6 @@
+<h2>Mobility Alerts</h2>
+<ul>
+  {% for message in messages %}
+    <li>{{ message|safe }}</li>
+  {% endfor %}
+</ul>
