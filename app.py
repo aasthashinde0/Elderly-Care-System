@@ -1,6 +1,8 @@
 from agents import get_due_reminders, get_fall_alerts, get_health_alerts
 from flask import Flask, render_template , request, redirect, url_for, session
 import sqlite3
+import os
+
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # Needed for sessions
@@ -95,6 +97,9 @@ def logout():
     session.pop('user_id', None)
     return redirect(url_for('home'))
 
-if __name__ == '__main__':
-    app.run(debug=True)
+#if __name__ == '__main__':
+ #   app.run(debug=True)
 
+if __name__ == '__main__':
+    port = int(os.environ.get("PORT", 10000))
+    app.run(debug=True, host='0.0.0.0', port=port)
